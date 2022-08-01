@@ -8,6 +8,9 @@ namespace API_ProjetoTwitter
 {
     public class Usuarios
     {
+        [JsonProperty("id_usuario")]
+        public string Id_usuario { get; set; }
+
         [JsonProperty("username")]
         public string Username { get; set; }
 

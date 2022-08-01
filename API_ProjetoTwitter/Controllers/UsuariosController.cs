@@ -13,15 +13,28 @@ namespace API_ProjetoTwitter.Controllers
     public class UsuariosController : ControllerBase
     {
 
-        [HttpGet("obterUsuario")]
-        public string Login(string nome, string senha)
+        [HttpGet("ObterUsuario/{nome},{senha}")]
+        public List<Usuarios> Login(string nome, string senha)
         {
-            string resultado;
-            // Chamando método para inserir usuario no banco
-            UsuarioDAO InserindoUsuarioNoBanco = new UsuarioDAO();
-            resultado = InserindoUsuarioNoBanco.ObterUsuario(nome, senha);
+            // Chamando método para obter usuario no banco
+            UsuarioDAO resultado = new UsuarioDAO();
+            Usuarios obtenha = resultado.ObterUsuario(nome, senha);
 
-            return resultado;
+            string ValidarUser = obtenha.Username;
+            string ValidarSenha = obtenha.Senha;
+
+            if (ValidarUser == nome && ValidarSenha == senha)
+            {
+                List<Usuarios> listaComInformacaoDoUser = new List<Usuarios>();
+                listaComInformacaoDoUser.Add(obtenha);
+
+                return listaComInformacaoDoUser;
+
+            }
+            else
+            {
+                return null;
+            }
 
 
         }

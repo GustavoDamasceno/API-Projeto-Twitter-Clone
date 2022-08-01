@@ -56,43 +56,45 @@ namespace API_ProjetoTwitter.ModeloDAO
 
         }
 
-        public string ObterUsuario(string nome, string senha)
+        public Usuarios ObterUsuario(string nome, string senha)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(LocalDb)\localdb;Initial Catalog=DB.ProjetoTwitter;Integrated Security=True");
 
             try
             {
-                // Conexão com o banco de dados
-                con.Open();
-
-                // Inserindo dados no banco de dados
-                string Tabela = "T_USUARIOSS";
-                string strSQL = ("SELECT * FROM " + Tabela + "WHERE username='"+nome+"'");
-                string strSQL2 = ("SELECT * FROM " + Tabela + "WHERE username='" + senha + "'");
-
-                SqlCommand cmd = new SqlCommand(strSQL.ToString(), con);
-
-                SqlCommand cmd2 = new SqlCommand(strSQL2.ToString(), con);
-
-                if (cmd != null && cmd2 != null)
+                Usuarios ObtendoUsuario = new Usuarios();
+                using (SqlConnection con = new SqlConnection(@"Data Source=(LocalDb)\localdb;Initial Catalog=DB.ProjetoTwitter;Integrated Security=True"))
                 {
-                    return "Usuário válido";
-                }
-                else
-                {
-                    return "Usuário não existe";
-                }
+                    string oString = ("SELECT * FROM T_USUARIOSS WHERE username=@fusername AND senha=@fsenha");
+                    SqlCommand oCmd = new SqlCommand(oString, con);
+                    oCmd.Parameters.AddWithValue("@fusername", nome);
+                    oCmd.Parameters.AddWithValue("@fsenha", senha);
 
+                    // Conexão com o banco de dados
+                    con.Open(); ;
 
+                    using (SqlDataReader oReader = oCmd.ExecuteReader())
+                    {
+                        while (oReader.Read())
+                        {
+                            ObtendoUsuario.Id_usuario = oReader["id_usuario"].ToString();
+                            ObtendoUsuario.Username = oReader["username"].ToString();
+                            ObtendoUsuario.Nome = oReader["nome"].ToString();
+                            ObtendoUsuario.Senha = oReader["senha"].ToString();
+                            ObtendoUsuario.Email = oReader["email"].ToString();
+                            ObtendoUsuario.Cidade = oReader["cidade"].ToString();
+                            ObtendoUsuario.Biografia = oReader["biografia"].ToString();
+                        }
+
+                        // Fechando conexão com o banco de dados
+                        con.Close();
+                    }
+                }
+                return ObtendoUsuario;
 
             }
             catch (Exception)
             {
                 throw;
-            }
-            finally
-            {
-
             }
         }
 
