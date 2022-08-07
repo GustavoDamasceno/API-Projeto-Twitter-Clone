@@ -12,7 +12,34 @@ namespace API_ProjetoTwitter.Controllers
     [Route("[controller]")]
     public class UsuariosController : ControllerBase
     {
+        /// <summary>
+        /// Inclui usuário no banco de dados [DB.ProjetoTwitter] na tabela [T_USUARIOSS].
+        /// </summary>
+        /// <returns>string de sucesso</returns>
+        /// <response code="200">Returna uma string de sucesso</response>
+        [HttpPost("IncluirUsuario")]
+        public string Post(Usuarios usuario)
+        {
+            try
+            {
+                // Chamando método para inserir usuario no banco
+                UsuarioDAO InserindoUsuarioNoBanco = new UsuarioDAO();
+                InserindoUsuarioNoBanco.Inserir_Usuario(usuario);
 
+                return "Usuario incluso no banco de dados, com sucesso.";
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+
+        }
+
+        /// <summary>
+        /// Obtém os dados do usuário cadastrado no banco de dados [DB.ProjetoTwitter] na tabela [T_USUARIOSS].
+        /// </summary>
+        /// <returns>Dados cadastrais do usuário</returns>
+        /// <response code="200">Returna os dados cadastrais do usuário, caso não encontrado no banco retona null</response>
         [HttpGet("ObterUsuario/{nome},{senha}")]
         public List<Usuarios> Login(string nome, string senha)
         {
@@ -36,24 +63,6 @@ namespace API_ProjetoTwitter.Controllers
                 return null;
             }
 
-
-        }
-
-        [HttpPost("IncluirUsuario")]
-        public string Post(Usuarios usuario)
-        {
-            try
-            {
-                // Chamando método para inserir usuario no banco
-                UsuarioDAO InserindoUsuarioNoBanco = new UsuarioDAO();
-                InserindoUsuarioNoBanco.Inserir_Usuario(usuario);
-
-                return "Usuario incluso no banco de dados, com sucesso.";
-            }
-            catch(Exception)
-            {
-                throw;
-            }
 
         }
     }

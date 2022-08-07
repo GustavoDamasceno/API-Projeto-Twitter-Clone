@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API_ProjetoTwitter</name>
+    </assembly>
+    <members>
+        <member name="M:API_ProjetoTwitter.Controllers.PostagensController.Post(API_ProjetoTwitter.Models.Postagens)">
+             <summary>
+             Inclui postagem no banco de dados [DB.ProjetoTwitter] na tabela [T_POSTAGENSS].
+             </summary>
+             <remarks>
+             Exemplo:
+            
+                 {
+                    "id_usuario": "string",
+                    "postagem": "string",
+                    "data": "dd/mm/aaaa",
+                    "hora": "hh:mm"
+                 }
+            
+             </remarks>
+             <returns>string de sucesso</returns>
+             <response code="200">Returna uma string de sucesso</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.PostagensController.Getda">
+            <summary>
+            Obtém os dados de todas as postagens disponíveis no banco de dados [DB.ProjetoTwitter] na tabela [T_POSTAGENSS].
+            </summary>
+            <returns>string de sucesso</returns>
+            <response code="200">Returna os dados de todas as postagens disponíveis no banco de dados.</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.PostagensController.Get(System.String)">
+            <summary>
+            Obtém os dados da postagem de um terminado usuário.
+            </summary>
+            <returns>string de sucesso</returns>
+            <response code="200">Returna os dados das postagens do usuário</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.PostagensController.Put">
+            <summary>
+            Edita uma postagem e retorna os novos dados da postagem.
+            </summary>
+            <returns>string de sucesso</returns>
+            <response code="200">Returna os novos dados da postagem</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.PostagensController.Delete(System.String)">
+            <summary>
+            Exclui a postagem do banco de dados [DB.ProjetoTwitter] na tabela [T_POSTAGENSS].
+            </summary>
+            <returns>string de sucesso</returns>
+            <response code="200">Returna os dados da postagem</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.UsuariosController.Post(API_ProjetoTwitter.Usuarios)">
+            <summary>
+            Inclui usuário no banco de dados [DB.ProjetoTwitter] na tabela [T_USUARIOSS].
+            </summary>
+            <returns>string de sucesso</returns>
+            <response code="200">Returna uma string de sucesso</response>
+        </member>
+        <member name="M:API_ProjetoTwitter.Controllers.UsuariosController.Login(System.String,System.String)">
+            <summary>
+            Obtém os dados do usuário cadastrado no banco de dados [DB.ProjetoTwitter] na tabela [T_USUARIOSS].
+            </summary>
+            <returns>Dados cadastrais do usuário</returns>
+            <response code="200">Returna os dados cadastrais do usuário, caso não encontrado no banco retona null</response>
+        </member>
+    </members>
+</doc>
