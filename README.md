@@ -49,4 +49,4 @@ FOREIGN KEY(id_usuario) REFERENCES T_USUARIOS(id_usuario)
 
 ## Sobre a API
 
-[... tópico ainda em construção]
+Como já se sabe o propósito do projeto é elaborar um clone do feed do twitter, no caso o uauário da aplicação irá criar sua conta e em seguida logar. Com a conta logada o usuário poderá criar tweet e visualizar todos os outros tweets dos outros usuários, porém assim como o twitter o usuário não poderá editar o tweet apenas excluir, a ideia dessa regra não foi pensada pelo desenvolvedor desse clone foi apenas uma cópia do twitter. [... tópico em construção]
