@@ -2,7 +2,9 @@
 
 ## Descrição
 
-[... tópico ainda em construção]
+O projeto tem como finalidade a elaboração de um clone do feed do twitter, utilizando a biblioteca **ReactJS** no front-end e criar uma API utilizando o **framework .NET** para conectar o front-end com o banco de dados **Sql server**, conforme ilustra a imagem abaixo:
+
+![](https://media.discordapp.net/attachments/721023119074000897/1012470677787390133/API_1.png?width=415&height=415)
 
 ## Back-end do projeto
 Esse código tem como propósito conectar o front-end do projeto com o banco de dados. O projeto foi desenvolvido utilizando o ASP.NET que é uma plataforma da Microsoft para o desenvolvimento de aplicações Web e é o sucessor da tecnologia ASP. Permite, através de uma linguagem de programação integrada na .NET Framework, criar páginas dinâmicas. Não é nem uma linguagem de programação como VBScript, PHP, nem um servidor web como IIS ou Apache.
